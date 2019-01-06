@@ -1,0 +1,28 @@
+{
+  "name": "microhydra-service",
+  "version": "0.0.1",
+  "author": "Vanessa Milagros <vanessapr.85@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node microhydra-service.js",
+    "debug": "node-debug microhydra-service.js --debug-brk",
+    "test": "mocha specs --reporter spec",
+    "docker": "node scripts/docker.js"
+  },
+  "engines": {
+    "node": ">=6.2.1"
+  },
+  "dependencies": {
+  "fwsp-config": "1.1.5",
+  "hydra-express": "1.7.0",
+  "fwsp-server-response": "2.2.6",
+  "sharp": "^0.21.1",
+  "body-parser": "^1.18.3"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "3.16.0",
+    "mocha": "3.2.0",
+    "superagent": "3.5.2"
+  }
+}

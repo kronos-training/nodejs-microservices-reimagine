@@ -1,0 +1,15 @@
+{
+  "environment": "development",
+  "hydra": {
+    "serviceName": "microhydra-service",
+    "serviceIP": "",
+    "servicePort": 3000,
+    "serviceType": "microhydra",
+    "serviceDescription": "Manipulation of images and thumbnails",
+    "redis": {
+      "url": "127.0.0.1",
+      "port": 6379,
+      "db": 15
+    }
+  }
+}
