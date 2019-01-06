@@ -78,4 +78,41 @@ router.post('/uploads/:image', bodyParser.raw({
   });
 });
 
+router.head('/uploads/:image', (req, res) => {
+  fs.access(path.join(process.cwd(), 'uploads', req.params.image),
+  fs.constants.R_OK,
+  (err) => {
+    res.status(err ? 404 : 200);
+    res.end();
+  });
+});
+
+router.get('/uploads/:image', (req, res) => {
+  let ext = path.extname(req.params.image);
+
+  if (!ext.match(/^\.(png|jpg)$/)) {
+    res.status(404).end();
+  }
+
+  let fd =  fs.createReadStream(path.join(process.cwd(), 'uploads', req.params.image));
+
+  fd.on('error', (e) => {
+    if (e.code === 'ENOENT') {
+      res.status(404);
+
+      if (req.accepts('html')) {
+        res.setHeader('Content-Type', 'text/html');
+        res.write('<strong>Error:</strong> Image no found');
+      }
+
+      return res.end();
+    }
+
+    res.status(500).end();
+  });
+
+  res.setHeader('Content-Type', `image/${ext.substr(1)}`);
+  fd.pipe(res);
+});
+
 module.exports = router;
