@@ -1,0 +1,16 @@
+{
+  "name": "reimagine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vanessa M. Paco Ramos <vanessapr.85@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "sharp": "^0.21.1"
+  }
+}
